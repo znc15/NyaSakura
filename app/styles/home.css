@@ -245,13 +245,21 @@
   .name {
     font-size: 3.5rem;
   }
-  
+
   .typewriter {
     font-size: 1.8rem;
   }
-  
+
   .interests {
     font-size: 2rem;
+  }
+
+  .button-group {
+    margin-bottom: 1.5rem;
+  }
+
+  .social-links {
+    margin-bottom: 2rem;
   }
 }
 

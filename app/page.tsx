@@ -84,8 +84,8 @@ export default function Home() {
       )}
 
       {/* 第一屏：全屏欢迎区域 */}
-      <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 relative">
-        <main className="main flex-1 flex flex-col justify-center">
+      <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-16 relative">
+        <main className="main flex-1 flex flex-col justify-center pb-24 md:pb-0">
           <div className="fade-in-up">
             <h2 className="greeting" style={{color: "#8785A2"}}>欢迎来到</h2>
             <h1 className="name" style={{
