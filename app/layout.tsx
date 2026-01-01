@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { ThemeProvider } from "./providers";
 import { Navbar } from "./components/Navbar";
+import { VersionCheck } from "./components/VersionCheck";
 
 export const metadata: Metadata = {
   title: "NyaSakura Server",
@@ -24,6 +25,7 @@ export default function RootLayout({
         >
           <div className="min-h-screen">
             <div className="max-w-screen-2xl mx-auto">
+              <VersionCheck />
               <Navbar />
               {children}
             </div>
