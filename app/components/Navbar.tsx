@@ -49,7 +49,7 @@ export function Navbar() {
               <Link href="/" className="flex items-center space-x-2">
                 <span className="text-2xl">🌸</span>
                 <span className="font-bold text-xl text-gray-800 dark:text-white">
-                  NyaSakura 喵樱乡
+                  {process.env.NEXT_PUBLIC_NAV_LOGO || "NyaSakura 喵樱乡"}
                 </span>
               </Link>
             </div>
@@ -58,21 +58,31 @@ export function Navbar() {
             <div className="flex items-center justify-end flex-1">
               {/* 桌面菜单 */}
               <div className="hidden md:flex md:items-center md:justify-end md:space-x-3 md:ml-auto">
-                <Link href="/" className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  首页
-                </Link>
-                <Link href="https://map.nyasakura.fun" className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  服务器地图
-                </Link>
-                <Link href="https://metro.nyasakura.fun" className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  服务器地铁
-                </Link>
-                <Link href="https://wiki.nyasakura.fun" className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  服务器Wiki
-                </Link>
-                <Link href="/donate" className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
-                  服务器捐赠名单
-                </Link>
+                {process.env.NEXT_PUBLIC_NAV_SHOW_HOME !== 'false' && (
+                  <Link href={process.env.NEXT_PUBLIC_NAV_HOME_URL || "/"} className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                    {process.env.NEXT_PUBLIC_NAV_HOME || "首页"}
+                  </Link>
+                )}
+                {process.env.NEXT_PUBLIC_NAV_SHOW_MAP !== 'false' && (
+                  <Link href={process.env.NEXT_PUBLIC_NAV_MAP_URL || "https://map.nyasakura.fun"} className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                    {process.env.NEXT_PUBLIC_NAV_MAP || "服务器地图"}
+                  </Link>
+                )}
+                {process.env.NEXT_PUBLIC_NAV_SHOW_METRO !== 'false' && (
+                  <Link href={process.env.NEXT_PUBLIC_NAV_METRO_URL || "https://metro.nyasakura.fun"} className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                    {process.env.NEXT_PUBLIC_NAV_METRO || "服务器地铁"}
+                  </Link>
+                )}
+                {process.env.NEXT_PUBLIC_NAV_SHOW_WIKI !== 'false' && (
+                  <Link href={process.env.NEXT_PUBLIC_WIKI_URL || "https://wiki.nyasakura.fun"} className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                    {process.env.NEXT_PUBLIC_NAV_WIKI || "服务器Wiki"}
+                  </Link>
+                )}
+                {process.env.NEXT_PUBLIC_NAV_SHOW_DONATE !== 'false' && (
+                  <Link href={process.env.NEXT_PUBLIC_NAV_DONATE_URL || "/donate"} className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors">
+                    {process.env.NEXT_PUBLIC_NAV_DONATE || "服务器捐赠名单"}
+                  </Link>
+                )}
               </div>
               
               {/* 移动端菜单按钮 */}
@@ -102,42 +112,52 @@ export function Navbar() {
           mobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
         }`}>
           <div className="px-2 pt-2 pb-3 space-y-1 bg-white/95 dark:bg-gray-900/95 backdrop-blur-sm shadow-lg rounded-b-xl mx-4 mt-2 border border-gray-200 dark:border-gray-800">
-            <Link 
-                href="/" 
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
-              >
-                首页
-              </Link>
-              <Link 
-                href="https://map.nyasakura.fun" 
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
-              >
-                服务器地图
-              </Link>
-              <Link 
-                href="https://metro.nyasakura.fun" 
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
-              >
-                服务器地铁
-              </Link>
-              <Link 
-                href="https://wiki.nyasakura.fun" 
-                onClick={closeMobileMenu}
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
-              >
-                服务器Wiki
-              </Link>
+            {process.env.NEXT_PUBLIC_NAV_SHOW_HOME !== 'false' && (
               <Link
-                href="/donate"
+                href={process.env.NEXT_PUBLIC_NAV_HOME_URL || "/"}
                 onClick={closeMobileMenu}
                 className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
               >
-                服务器捐赠名单
+                {process.env.NEXT_PUBLIC_NAV_HOME || "首页"}
               </Link>
-            </div>
+            )}
+            {process.env.NEXT_PUBLIC_NAV_SHOW_MAP !== 'false' && (
+              <Link
+                href={process.env.NEXT_PUBLIC_NAV_MAP_URL || "https://map.nyasakura.fun"}
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
+              >
+                {process.env.NEXT_PUBLIC_NAV_MAP || "服务器地图"}
+              </Link>
+            )}
+            {process.env.NEXT_PUBLIC_NAV_SHOW_METRO !== 'false' && (
+              <Link
+                href={process.env.NEXT_PUBLIC_NAV_METRO_URL || "https://metro.nyasakura.fun"}
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
+              >
+                {process.env.NEXT_PUBLIC_NAV_METRO || "服务器地铁"}
+              </Link>
+            )}
+            {process.env.NEXT_PUBLIC_NAV_SHOW_WIKI !== 'false' && (
+              <Link
+                href={process.env.NEXT_PUBLIC_WIKI_URL || "https://wiki.nyasakura.fun"}
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
+              >
+                {process.env.NEXT_PUBLIC_NAV_WIKI || "服务器Wiki"}
+              </Link>
+            )}
+            {process.env.NEXT_PUBLIC_NAV_SHOW_DONATE !== 'false' && (
+              <Link
+                href={process.env.NEXT_PUBLIC_NAV_DONATE_URL || "/donate"}
+                onClick={closeMobileMenu}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 dark:text-gray-200 hover:bg-pink-100 dark:hover:bg-pink-900/30 hover:text-pink-600 dark:hover:text-pink-400 transition-colors"
+              >
+                {process.env.NEXT_PUBLIC_NAV_DONATE || "服务器捐赠名单"}
+              </Link>
+            )}
+          </div>
           </div>
       </nav>
 

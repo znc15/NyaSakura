@@ -31,7 +31,7 @@ pnpm start
 - Linux系统（支持systemd）
 - 已安装Node.js环境
 - 已安装pnpm包管理器（脚本会自动检查）
-- 
+
 ## 许可
 
 本项目采用 MIT 许可证。
