@@ -67,37 +67,44 @@
 }
 
 /* 基础样式 */
-.container {
+.home-container {
   position: relative;
   font-family: 'HarmonyOS_Regular', system-ui, -apple-system, sans-serif;
+  --fluid-px: clamp(1rem, 3vw, 2rem);
 }
 
 .content {
-  padding-top: 80px; /* 增加导航栏预留空间 */
-  padding-bottom: 40px; /* 底部留白 */
+  padding-top: clamp(5rem, 10vh, 6rem); /* 预留导航栏空间（无极） */
+  padding-bottom: clamp(2rem, 6vh, 3rem); /* 底部留白（无极） */
+  padding-inline: var(--fluid-px);
   display: flex;
   flex-direction: column;
   justify-content: flex-start; /* 改为从顶部开始布局 */
   overflow-y: auto; /* 允许内容滚动 */
+  max-width: min(72rem, 100%);
+  margin-inline: auto;
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-  padding-top: 3rem;
+  gap: clamp(0.75rem, 1.8vh, 1rem);
+  padding-top: clamp(2rem, 6vh, 3rem);
+  padding-bottom: clamp(0rem, 10vh, 6rem);
   width: 100%;
+  max-width: min(72rem, 100%);
+  margin-inline: auto;
 }
 
 /* 标题样式 */
 .greeting {
-  font-size: 2rem;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
   font-weight: normal;
   margin-bottom: 0.5rem;
 }
 
 .name {
-  font-size: 5rem;
+  font-size: clamp(2.6rem, 6vw, 5rem);
   font-weight: 600;
   background: linear-gradient(135deg, #9058c9, #d87fac);
   background-clip: text;
@@ -108,17 +115,18 @@
 }
 
 .typewriter {
-  font-size: 2.5rem;
+  font-size: clamp(1.25rem, 3vw, 2.5rem);
   font-weight: normal;
   font-family: HarmonyOS_Regular;
-  height: 48px;
+  height: 1.25em;
+  min-height: 1.25em;
   margin-bottom: 1rem;
   color: #FF69B4;
 }
 
 /* 内容样式 */
 .interests {
-  font-size: 2.5rem;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
   margin-bottom: 1rem;
 }
 
@@ -130,7 +138,7 @@
 }
 
 .description {
-  font-size: 1.125rem;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
   line-height: 1.6;
   color: #4B5563;
   margin-bottom: 1.5rem;
@@ -139,7 +147,8 @@
 /* 按钮样式 */
 .button-group {
   display: flex;
-  gap: 0.75rem;
+  flex-wrap: wrap;
+  gap: clamp(0.5rem, 1.2vw, 0.75rem);
   margin-bottom: 1rem;
 }
 
@@ -147,8 +156,8 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
+  padding: clamp(0.65rem, 1.2vw, 0.75rem) clamp(1.05rem, 2.4vw, 1.5rem);
+  font-size: clamp(0.95rem, 1.1vw, 1rem);
   font-weight: 500;
   border: 2px solid #FF69B4;
   border-radius: 0.75rem;
@@ -166,7 +175,8 @@
 /* 社交图标样式 */
 .social-links {
   display: flex;
-  gap: 1rem;
+  flex-wrap: wrap;
+  gap: clamp(0.75rem, 1.6vw, 1rem);
 }
 
 .social-link {
@@ -188,8 +198,8 @@
 }
 
 .social-icon {
-  width: 24px;
-  height: 24px;
+  width: clamp(20px, 2.2vw, 24px);
+  height: clamp(20px, 2.2vw, 24px);
 }
 
 /* 服务器信息卡片 */
@@ -240,28 +250,7 @@
   }
 }
 
-/* 响应式调整 */
-@media (max-width: 768px) {
-  .name {
-    font-size: 3.5rem;
-  }
-
-  .typewriter {
-    font-size: 1.8rem;
-  }
-
-  .interests {
-    font-size: 2rem;
-  }
-
-  .button-group {
-    margin-bottom: 1.5rem;
-  }
-
-  .social-links {
-    margin-bottom: 2rem;
-  }
-}
+/* 原来的 width 断点响应式已改为 clamp() 无级缩放 */
 
 @keyframes fall {
   from {

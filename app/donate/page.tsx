@@ -13,7 +13,7 @@ export default function DonatePage() {
 
   return (
     <div className="min-h-screen">
-      <main className="container mx-auto px-4 pt-28 pb-10">
+      <main className="max-w-6xl mx-auto fluid-px pt-28 pb-10">
         {/* 页面标题 */}
         <motion.div 
           className="text-center mb-12"
@@ -66,7 +66,10 @@ export default function DonatePage() {
           </h2>
           
           {/* 捐赠卡片网格 */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div
+            className="auto-grid"
+            style={{ ['--grid-min' as any]: '18rem', ['--grid-gap' as any]: '1.5rem' }}
+          >
             <motion.div 
               className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}

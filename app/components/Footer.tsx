@@ -3,14 +3,14 @@ import React from 'react';
 export function Footer() {
   return (
     <footer className="mt-16 py-12 border-t border-pink-500/30 text-center bg-gradient-to-b from-transparent">
-      <div className="container mx-auto px-4">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="mb-4 md:mb-0">
+      <div className="max-w-6xl mx-auto fluid-px">
+        <div className="flex flex-wrap justify-between items-center gap-8">
+          <div className="mb-4">
             <h3 className="text-2xl font-bold text-pink-300 mb-2">NyaSakura Server</h3>
             <p className="text-sm opacity-70">一个充满创意与欢乐的Minecraft服务器</p>
           </div>
           
-          <div className="grid grid-cols-1 gap-y-6 mb-4 md:mb-0 text-sm">
+          <div className="grid grid-cols-1 gap-y-6 mb-4 text-sm">
             <div className="text-right">
               <h4 className="font-bold text-black mb-2 text-base">友情链接</h4>
               <ul className="space-y-2 text-black">

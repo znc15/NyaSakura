@@ -67,7 +67,7 @@ export default function Home() {
   })();
 
   return (
-    <div className="container" style={{color: "#8785A2"}}>
+    <div className="home-container" style={{color: "#8785A2"}}>
       <Sakura count={Number(process.env.NEXT_PUBLIC_SAKURA_COUNT) || 30} />
       {showServerAddress && (
         <Dialog
@@ -103,8 +103,8 @@ export default function Home() {
       )}
 
       {/* 第一屏：全屏欢迎区域 */}
-      <div className="min-h-screen flex flex-col justify-center items-center px-4 sm:px-6 lg:px-8 pt-16 relative">
-        <main className="main flex-1 flex flex-col justify-center pb-24 md:pb-0">
+      <div className="min-h-screen flex flex-col justify-center items-center fluid-px pt-16 relative">
+        <main className="main flex-1 flex flex-col justify-center">
           <div className="fade-in-up">
             <h2 className="greeting" style={{color: "#8785A2"}}>{process.env.NEXT_PUBLIC_GREETING || "欢迎来到"}</h2>
             <h1 className="name" style={{
@@ -230,10 +230,13 @@ export default function Home() {
       </div>
 
       {/* 第二屏：服务器详情内容 */}
-      <div id="content-section" className="content px-4 sm:px-6 lg:px-8 py-12">
+      <div id="content-section" className="content py-12">
         <div className="server-info p-6 bg-[#FFE2E2]/80 backdrop-blur-md rounded-lg shadow-lg fade-in-up">
           <h2 className="text-2xl font-bold mb-4 text-[#8785A2]">{process.env.NEXT_PUBLIC_SERVER_DETAILS_TITLE || "服务器详情"}</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div
+            className="auto-grid"
+            style={{ ['--grid-min' as any]: '22rem', ['--grid-gap' as any]: '1.5rem' }}
+          >
               <div>
                 <h3 className="text-xl font-semibold mb-2 text-[#8785A2]">{process.env.NEXT_PUBLIC_SERVER_CONFIG_TITLE || "服务器配置"}</h3>
                 <ul className="space-y-2 text-[#8785A2]">
@@ -290,7 +293,10 @@ export default function Home() {
 
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-3 text-[#8785A2] border-l-4 border-[#FFC7C7] pl-3">{process.env.NEXT_PUBLIC_DETAIL_MODS_TITLE || "核心模组介绍"}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                className="auto-grid"
+                style={{ ['--grid-min' as any]: '20rem', ['--grid-gap' as any]: '1rem' }}
+              >
                 <div className="bg-[#F6F6F6] p-4 rounded-lg">
                   <h4 className="font-bold text-lg mb-2 flex items-center text-[#8785A2]">
                     <span className="mr-2">⚙️</span>
@@ -324,7 +330,10 @@ export default function Home() {
             
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-3 text-[#8785A2] border-l-4 border-[#FFC7C7] pl-3">{process.env.NEXT_PUBLIC_DETAIL_FEATURES_TITLE || "更多特色"}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div
+                className="auto-grid"
+                style={{ ['--grid-min' as any]: '20rem', ['--grid-gap' as any]: '1rem' }}
+              >
                 <div className="bg-[#F6F6F6] p-4 rounded-lg">
                   <h4 className="font-bold text-lg mb-2 flex items-center text-[#8785A2]">
                     <span className="mr-2">🚇</span>
@@ -370,7 +379,10 @@ export default function Home() {
             
             <div className="mb-8">
               <h3 className="text-xl font-semibold mb-3 text-[#8785A2] border-l-4 border-[#FFC7C7] pl-3">{process.env.NEXT_PUBLIC_DETAIL_WORLDS_TITLE || "世界介绍"}</h3>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <div
+                className="auto-grid"
+                style={{ ['--grid-min' as any]: '18rem', ['--grid-gap' as any]: '1rem' }}
+              >
                 <div className="bg-[#F6F6F6] p-4 rounded-lg">
                   <h4 className="font-bold mb-2 flex items-center text-[#8785A2]">
                     <span className="mr-2">🏙️</span>

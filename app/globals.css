@@ -29,6 +29,24 @@ body {
   font-family: var(--font-sans);
 }
 
+.fluid-px {
+  padding-inline: clamp(1rem, 3vw, 2rem);
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.auto-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--grid-min, 16rem), 1fr));
+  gap: var(--grid-gap, 1.5rem);
+}
+
 .gradient-text {
   background: linear-gradient(45deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
