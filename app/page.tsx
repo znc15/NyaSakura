@@ -6,6 +6,22 @@ import { Footer } from "./components/Footer";
 import "./styles/home.css";
 import { useEffect, useState } from "react";
 import Dialog from "./components/Dialog";
+import { ScrollDownButton } from "./components/ScrollDownButton";
+import {
+  FaBilibili,
+  FaBolt,
+  FaClock,
+  FaComments,
+  FaGithub,
+  FaHardDrive,
+  FaLinux,
+  FaMemory,
+  FaMicrochip,
+  FaNetworkWired,
+  FaQq,
+  FaSnowflake,
+  FaUsers,
+} from "react-icons/fa6";
 
 export default function Home() {
   // 使用静态数据代替API调用
@@ -161,17 +177,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="social-link hover:text-[#FFC7C7]"
             >
-              <svg
-                viewBox="0 0 24 24"
-                className="social-icon"
-                stroke="currentColor"
-                strokeWidth="2"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-              </svg>
+              <FaGithub className="social-icon" aria-hidden="true" />
             </a>
             <a
               href={process.env.NEXT_PUBLIC_BILIBILI_URL || "https://space.bilibili.com/348894836"}
@@ -179,9 +185,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="social-link"
             >
-              <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M17.813 4.653h.854c1.51.054 2.769.578 3.773 1.574 1.004.995 1.524 2.249 1.56 3.76v7.36c-.036 1.51-.556 2.769-1.56 3.773s-2.262 1.524-3.773 1.56H5.333c-1.51-.036-2.769-.556-3.773-1.56S.036 18.858 0 17.347v-7.36c.036-1.511.556-2.765 1.56-3.76 1.004-.996 2.262-1.52 3.773-1.574h.774l-1.174-1.12a1.234 1.234 0 0 1-.373-.906c0-.356.124-.658.373-.907l.027-.027c.267-.249.573-.373.92-.373.347 0 .653.124.92.373L9.653 4.44c.071.071.134.142.187.213h4.267a.836.836 0 0 1 .16-.213l2.853-2.747c.267-.249.573-.373.92-.373.347 0 .662.151.929.4.267.249.391.551.391.907 0 .355-.124.657-.373.906L17.813 4.653zM5.333 7.24c-.746.018-1.373.276-1.88.773-.506.498-.769 1.13-.786 1.894v7.52c.017.764.28 1.395.786 1.893.507.498 1.134.756 1.88.773h13.334c.746-.017 1.373-.275 1.88-.773.506-.498.769-1.129.786-1.893v-7.52c-.017-.765-.28-1.396-.786-1.894-.507-.497-1.134-.755-1.88-.773H5.333zM8 11.107c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c0-.373.129-.689.386-.947.258-.257.574-.386.947-.386zm8 0c.373 0 .684.124.933.373.25.249.383.569.4.96v1.173c-.017.391-.15.711-.4.96-.249.25-.56.374-.933.374s-.684-.125-.933-.374c-.25-.249-.383-.569-.4-.96V12.44c.017-.391.15-.711.4-.96.249-.249.56-.373.933-.373Z"/>
-              </svg>
+              <FaBilibili className="social-icon" aria-hidden="true" />
             </a>
             <a
               href={process.env.NEXT_PUBLIC_QQ_URL || "https://qm.qq.com/q/j5OJ7sUANO"}
@@ -189,9 +193,7 @@ export default function Home() {
               rel="noopener noreferrer"
               className="social-link"
             >
-              <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12.003 2c-2.265 0-6.29 1.364-6.29 7.325v1.195S3.55 14.96 3.55 17.474c0 .665.17 1.025.281 1.025.114 0 .902-.484 1.748-2.072 0 0-.18 2.197 1.904 3.967 0 0-1.77.495-1.77 1.182 0 .686 4.078.43 6.29 0 2.239.43 6.287.687 6.287 0 0-.688-1.768-1.182-1.768-1.182 2.085-1.77 1.905-3.967 1.905-3.967.845 1.588 1.634 2.072 1.746 2.072.111 0 .283-.36.283-1.025 0-2.514-2.166-6.954-2.166-6.954V9.325C18.29 3.364 14.268 2 12.003 2z"/>
-              </svg>
+              <FaQq className="social-icon" aria-hidden="true" />
             </a>
             <a
               href={process.env.NEXT_PUBLIC_KOOK_URL || "https://kook.top/uMLpM4"}
@@ -199,34 +201,14 @@ export default function Home() {
               rel="noopener noreferrer"
               className="social-link"
             >
-              <svg className="social-icon" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M11.0721 2.4721c.4155-.6233.9179-.6233 1.3334 0L22.9363 20.5279c.4155.6233-.1039 1.4721-.8707 1.4721H1.9344c-.7668 0-1.2862-.8488-.8707-1.4721L11.0721 2.4721zM12 6.8673L5.2868 19.5H18.831L12 6.8673z"/>
-              </svg>
+              <FaComments className="social-icon" aria-hidden="true" />
             </a>
           </div>
         </main>
 
-        {/* 向下滚动按钮 */}
-        <button
-          onClick={scrollToContent}
-          className="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce cursor-pointer bg-transparent border-none focus:outline-none"
-          aria-label="向下滚动"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            className="h-10 w-10 text-[#FFC7C7] hover:text-[#8785A2] transition-colors"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </button>
+        <div className="fade-in-up delay-500 pb-8 flex justify-center w-full">
+          <ScrollDownButton onClick={scrollToContent} />
+        </div>
       </div>
 
       {/* 第二屏：服务器详情内容 */}
@@ -241,31 +223,45 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2 text-[#8785A2]">{process.env.NEXT_PUBLIC_SERVER_CONFIG_TITLE || "服务器配置"}</h3>
                 <ul className="space-y-2 text-[#8785A2]">
                   <li className="flex items-center">
-                    <span className="mr-2">🖥️</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaMicrochip />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_CONFIG_CPU || "CPU: Intel(R) Core(TM) i7-9700K"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2">🧠</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaMemory />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_CONFIG_RAM || "内存: 32GB DDR4"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2">💾</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaHardDrive />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_CONFIG_STORAGE || "存储: 1TB NVMe SSD"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2">🌐</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaNetworkWired />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_CONFIG_NETWORK || "网络: 1Gbps 家用宽带"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2">⚡</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaBolt />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_CONFIG_POWER || "电源: 750W 金牌全模组电源"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2">❄️</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaSnowflake />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_CONFIG_COOLING || "散热: 360mm一体式水冷"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2">🛡️</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaLinux />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_CONFIG_OS || "系统: Ubuntu Server 22.04 LTS"}</span>
                   </li>
                 </ul>
@@ -274,13 +270,17 @@ export default function Home() {
                 <h3 className="text-xl font-semibold mb-2 text-[#8785A2]">{process.env.NEXT_PUBLIC_SERVER_STATUS_TITLE || "服务器状态"}</h3>
                 <ul className="space-y-2 text-[#8785A2]">
                   <li className="flex items-center">
-                    <span className="mr-2">👥</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaUsers />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_STATUS_ONLINE || "当前在线"}: <span className="text-[#8785A2] font-medium">
                       {onlinePlayers}
                     </span> / {process.env.NEXT_PUBLIC_MAX_PLAYERS || "75"} {process.env.NEXT_PUBLIC_STATUS_PLAYERS || "玩家"}</span>
                   </li>
                   <li className="flex items-center">
-                    <span className="mr-2">⏱️</span>
+                    <span className="icon-square mr-2" aria-hidden="true">
+                      <FaClock />
+                    </span>
                     <span>{process.env.NEXT_PUBLIC_STATUS_UPTIME || "运行时间"}: {uptime}</span>
                   </li>
                 </ul>

@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev -p 3001",
+    "dev": "next dev -p 3001 --hostname 127.0.0.1",
+    "dev:clean": "node scripts/dev-clean.mjs",
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "next lint"
@@ -12,6 +13,7 @@
     "@nextui-org/react": "^2.6.11",
     "font-pingfang-sc": "^1.0.5",
     "framer-motion": "^12.5.0",
+    "icofont": "^1.0.0",
     "lucide-react": "^0.483.0",
     "minecraft-server-util": "^5.4.4",
     "next": "15.2.3",

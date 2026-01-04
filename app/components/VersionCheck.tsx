@@ -5,6 +5,7 @@ import { useEffect } from "react";
 
 const VERSION_KEY = "nyasakura:app_version";
 const RELOADED_FOR_KEY = "nyasakura:app_version_reloaded_for";
+const DEV_CLEARED_SW_KEY = "nyasakura:dev_cleared_sw_once";
 
 async function clearFrontendCaches() {
   try {
@@ -39,6 +40,24 @@ export function VersionCheck() {
     // Always print current frontend version in DevTools console.
     // (Requirement: "在f12控制台输出当前前端版本号")
     console.info(`[NyaSakura] Frontend version: ${currentVersion}`);
+
+    // In development, a leftover Service Worker / Cache Storage from a previous
+    // deployment can cache stale `/_next/static/*` assets and cause ChunkLoadError.
+    // Clear them once per tab session to avoid infinite reload loops.
+    if (process.env.NODE_ENV === "development") {
+      try {
+        const cleared = sessionStorage.getItem(DEV_CLEARED_SW_KEY);
+        if (!cleared) {
+          sessionStorage.setItem(DEV_CLEARED_SW_KEY, "1");
+          void clearFrontendCaches().finally(() => {
+            window.location.reload();
+          });
+          return;
+        }
+      } catch {
+        // sessionStorage may be blocked; fail silently.
+      }
+    }
 
     try {
       const cachedVersion = localStorage.getItem(VERSION_KEY);

@@ -17,6 +17,9 @@ importers:
       framer-motion:
         specifier: ^12.5.0
         version: 12.5.0(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
+      icofont:
+        specifier: ^1.0.0
+        version: 1.0.0
       lucide-react:
         specifier: ^0.483.0
         version: 0.483.0(react@19.0.0)
@@ -1559,6 +1562,9 @@ packages:
 
   graceful-fs@4.2.11:
     resolution: {integrity: sha512-RbJ5/jmFcNNCcDV5o9eTnBLJ/HszWV0P73bc+Ff4nS/rJj+YaS6IGyiOL0VoBYX+l1Wrl3k63h/KrH+nhJ0XvQ==}
+
+  icofont@1.0.0:
+    resolution: {integrity: sha512-yNhEQMBFWq8qRHhljhMkbRfQ9rjKY1eVeNIlW46pNKGRY8BlRhG91/bgBOMFwW1+jHBrt33kvVwLmg9MLVBmqw==}
 
   input-otp@1.4.1:
     resolution: {integrity: sha512-+yvpmKYKHi9jIGngxagY9oWiiblPB7+nEO75F2l2o4vs+6vpPZZmUl4tBNYuTCvQjhvEIbdNeJu70bhfYP2nbw==}
@@ -4160,6 +4166,8 @@ snapshots:
       react-dom: 19.0.0(react@19.0.0)
 
   graceful-fs@4.2.11: {}
+
+  icofont@1.0.0: {}
 
   input-otp@1.4.1(react-dom@19.0.0(react@19.0.0))(react@19.0.0):
     dependencies:

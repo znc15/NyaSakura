@@ -186,8 +186,8 @@
   padding: 0.5rem;
   color: #FF69B4;
   background-color: rgba(255, 105, 180, 0.1);
-  border: none;
-  border-radius: 0.75rem;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
   transition: all 0.3s;
 }
 
@@ -200,6 +200,22 @@
 .social-icon {
   width: clamp(20px, 2.2vw, 24px);
   height: clamp(20px, 2.2vw, 24px);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: clamp(20px, 2.2vw, 24px);
+  line-height: 1;
+}
+
+.icon-square {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border: 1px solid currentColor;
+  border-radius: 0.5rem;
+  box-sizing: border-box;
 }
 
 /* 服务器信息卡片 */

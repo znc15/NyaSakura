@@ -10,6 +10,27 @@ const nextConfig: NextConfig = {
   env: {
     NEXT_PUBLIC_APP_VERSION: pkg.version,
   },
+  webpack: (config, { dev }) => {
+    if (dev) {
+      const extraIgnored = ["**/System Volume Information/**"];
+      const existingIgnored = config.watchOptions?.ignored;
+
+      const normalizedExisting = Array.isArray(existingIgnored)
+        ? existingIgnored.filter((v: unknown): v is string => typeof v === "string" && v.trim() !== "")
+        : typeof existingIgnored === "string" && existingIgnored.trim() !== ""
+          ? [existingIgnored]
+          : [];
+
+      const mergedIgnored = [...normalizedExisting, ...extraIgnored];
+
+      config.watchOptions = {
+        ...(config.watchOptions ?? {}),
+        ignored: mergedIgnored,
+      };
+    }
+
+    return config;
+  },
 };
 
 export default nextConfig;
