@@ -40,32 +40,16 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Use thin, custom-styled page scrollbars (keep scrolling visible) */
-html,
-body {
-  /* Show thin scrollbars in Firefox and compatible browsers */
-  scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.3) transparent;
+/* Hide scrollbars globally (keep scrolling) */
+* {
+  -ms-overflow-style: none; /* IE/Edge legacy */
+  scrollbar-width: none; /* Firefox */
 }
 
-/* WebKit-based browsers (Chrome, Safari, Edge (Chromium)) */
-html::-webkit-scrollbar,
-body::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
-}
-
-html::-webkit-scrollbar-track,
-body::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-html::-webkit-scrollbar-thumb,
-body::-webkit-scrollbar-thumb {
-  background-color: rgba(0, 0, 0, 0.3);
-  border-radius: 9999px;
-  border: 2px solid transparent;
-  background-clip: content-box;
+*::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+  display: none;
 }
 .fluid-px {
   padding-inline: clamp(1rem, 3vw, 2rem);
