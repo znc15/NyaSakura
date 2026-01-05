@@ -6,7 +6,10 @@ import type { NextConfig } from "next";
 // eslint-disable-next-line @typescript-eslint/no-var-requires
 const pkg = require("./package.json");
 
+const distDir = typeof process.env.NEXT_DIST_DIR === "string" ? process.env.NEXT_DIST_DIR.trim() : "";
+
 const nextConfig: NextConfig = {
+  ...(distDir ? { distDir } : {}),
   env: {
     NEXT_PUBLIC_APP_VERSION: pkg.version,
   },
