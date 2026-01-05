@@ -69,11 +69,11 @@ export function Footer() {
           </div>
 
           <div className="text-[clamp(0.875rem,1.8vw,0.95rem)] sm:text-right">
-            <h4 className="font-bold text-black mb-2 text-[clamp(1rem,2.2vw,1.05rem)]">友情链接</h4>
-            <ul className="space-y-2 text-black">
+            <h4 className="font-bold dark:text-white mb-2 text-[clamp(1rem,2.2vw,1.05rem)]">友情链接</h4>
+            <ul className="space-y-2 dark:text-white">
               {friendLinks.map((link, index) => (
                 <li key={`${link.name}-${link.url}-${index}`}>
-                  <a href={link.url} className="block py-1 transition-colors hover:text-pink-500">
+                  <a href={link.url} className="block py-1 transition-colors hover:text-pink-500 dark:hover:text-pink-300">
                     {link.name}
                   </a>
                 </li>

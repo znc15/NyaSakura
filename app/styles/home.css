@@ -71,6 +71,7 @@
   position: relative;
   font-family: 'HarmonyOS_Regular', system-ui, -apple-system, sans-serif;
   --fluid-px: clamp(1rem, 3vw, 2rem);
+  color: rgb(var(--ns-fg));
 }
 
 .content {
@@ -121,7 +122,7 @@
   height: 1.25em;
   min-height: 1.25em;
   margin-bottom: 1rem;
-  color: #FF69B4;
+  color: inherit;
 }
 
 /* 内容样式 */
@@ -140,7 +141,7 @@
 .description {
   font-size: clamp(1rem, 1.2vw, 1.125rem);
   line-height: 1.6;
-  color: #4B5563;
+  color: inherit;
   margin-bottom: 1.5rem;
 }
 
@@ -159,17 +160,17 @@
   padding: clamp(0.65rem, 1.2vw, 0.75rem) clamp(1.05rem, 2.4vw, 1.5rem);
   font-size: clamp(0.95rem, 1.1vw, 1rem);
   font-weight: 500;
-  border: 2px solid #FF69B4;
+  border: 2px solid rgb(var(--ns-accent));
   border-radius: 0.75rem;
   background: transparent;
-  color: #FF69B4;
+  color: inherit;
   transition: all 0.3s;
 }
 
 .button:hover {
   transform: translateY(-2px);
-  border-color: #FF1493;
-  color: #FF1493;
+  border-color: rgb(var(--ns-accent));
+  color: inherit;
 }
 
 /* 社交图标样式 */
@@ -184,16 +185,16 @@
   align-items: center;
   justify-content: center;
   padding: 0.5rem;
-  color: #FF69B4;
-  background-color: rgba(255, 105, 180, 0.1);
-  border: 1px solid currentColor;
+  color: inherit;
+  background-color: rgb(var(--ns-accent) / 0.12);
+  border: 1px solid rgb(var(--ns-accent));
   border-radius: 0.5rem;
   transition: all 0.3s;
 }
 
 .social-link:hover {
-  color: white;
-  background: linear-gradient(135deg, #FF69B4, #FFB6C1);
+  color: rgb(var(--ns-fg));
+  background-color: rgb(var(--ns-accent) / 0.2);
   transform: translateY(-2px);
 }
 
@@ -221,8 +222,6 @@
 /* 服务器信息卡片 */
 .server-info,
 .server-detail {
-  /* 使用半透明背景，但不使用模糊效果 */
-  background-color: rgba(255, 255, 255, 0.15);
   border-radius: 0.75rem;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
   overflow: hidden;
@@ -230,40 +229,6 @@
   z-index: 1;
   transition: all 0.3s ease;
   /* 移除所有模糊效果 */
-}
-
-/* 深色模式 */
-@media (prefers-color-scheme: dark) {
-  .button {
-    border-color: #FF69B4;
-    background: transparent;
-    color: #FF69B4;
-  }
-  
-  .button:hover {
-    border-color: #FF1493;
-    background: transparent;
-    color: #FF1493;
-  }
-  
-  .description {
-    color: #9CA3AF;
-  }
-  
-  .social-link {
-    background-color: rgba(255, 105, 180, 0.15);
-    color: #FF69B4;
-  }
-  
-  .social-link:hover {
-    background: linear-gradient(135deg, #FF1493, #FF69B4);
-    color: white;
-  }
-  
-  .server-info,
-  .server-detail {
-    background-color: rgba(30, 30, 30, 0.3);
-  }
 }
 
 /* 原来的 width 断点响应式已改为 clamp() 无级缩放 */

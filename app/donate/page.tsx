@@ -31,7 +31,7 @@ export default function DonatePage() {
 
         {/* 捐赠说明 */}
         <motion.div 
-          className="max-w-4xl mx-auto backdrop-blur-sm shadow-md border border-[#FFC7C7] dark:border-[#8785A2]/30 rounded-xl p-6 mb-12"
+          className="max-w-4xl mx-auto bg-white/70 dark:bg-gray-900/40 backdrop-blur-sm shadow-md border border-[#FFC7C7] dark:border-[#8785A2]/30 rounded-xl p-6 mb-12"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, delay: 0.2 }}
@@ -71,7 +71,7 @@ export default function DonatePage() {
             style={{ ['--grid-min' as any]: '18rem', ['--grid-gap' as any]: '1.5rem' }}
           >
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.5 }}
@@ -84,7 +84,7 @@ export default function DonatePage() {
             </motion.div>
             
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.6 }}
@@ -97,7 +97,7 @@ export default function DonatePage() {
             </motion.div>
             
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.7 }}
@@ -110,7 +110,7 @@ export default function DonatePage() {
             </motion.div>
 
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.8 }}
@@ -123,7 +123,7 @@ export default function DonatePage() {
             </motion.div>
 
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 0.9 }}
@@ -136,7 +136,7 @@ export default function DonatePage() {
             </motion.div>
 
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.0 }}
@@ -149,7 +149,7 @@ export default function DonatePage() {
             </motion.div>
 
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.1 }}
@@ -162,7 +162,7 @@ export default function DonatePage() {
             </motion.div>
 
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.2 }}
@@ -175,7 +175,7 @@ export default function DonatePage() {
             </motion.div>
 
             <motion.div 
-              className="rounded-xl p-6 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
+              className="rounded-xl p-6 bg-white/70 dark:bg-gray-900/40 shadow-lg hover:shadow-xl transition-shadow border border-[#FFC7C7] dark:border-[#8785A2]/30 backdrop-blur-sm group"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: 1.3 }}

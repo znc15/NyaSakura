@@ -9,8 +9,12 @@ export function Navbar() {
   const [scrolled, setScrolled] = useState(false)
   const [drawerOpen, setDrawerOpen] = useState(false)
   const [useDrawer, setUseDrawer] = useState(false)
-  const { resolvedTheme } = useTheme()
-  const isDark = resolvedTheme === 'dark'
+  const { resolvedTheme, setTheme } = useTheme()
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => setMounted(true), [])
+
+  const isDark = mounted ? resolvedTheme === 'dark' : false
 
   const backgroundRef = useRef<HTMLDivElement | null>(null)
   const navInnerRef = useRef<HTMLDivElement | null>(null)
@@ -61,7 +65,7 @@ export function Navbar() {
         {process.env.NEXT_PUBLIC_NAV_SHOW_HOME !== 'false' && (
           <Link
             href={process.env.NEXT_PUBLIC_NAV_HOME_URL || '/'}
-            className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            className="dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             {process.env.NEXT_PUBLIC_NAV_HOME || '首页'}
           </Link>
@@ -69,7 +73,7 @@ export function Navbar() {
         {process.env.NEXT_PUBLIC_NAV_SHOW_MAP !== 'false' && (
           <Link
             href={process.env.NEXT_PUBLIC_NAV_MAP_URL || 'https://map.nyasakura.fun'}
-            className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            className="dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             {process.env.NEXT_PUBLIC_NAV_MAP || '服务器地图'}
           </Link>
@@ -77,7 +81,7 @@ export function Navbar() {
         {process.env.NEXT_PUBLIC_NAV_SHOW_METRO !== 'false' && (
           <Link
             href={process.env.NEXT_PUBLIC_NAV_METRO_URL || 'https://metro.nyasakura.fun'}
-            className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            className="dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             {process.env.NEXT_PUBLIC_NAV_METRO || '服务器地铁'}
           </Link>
@@ -85,7 +89,7 @@ export function Navbar() {
         {process.env.NEXT_PUBLIC_NAV_SHOW_WIKI !== 'false' && (
           <Link
             href={process.env.NEXT_PUBLIC_WIKI_URL || 'https://wiki.nyasakura.fun'}
-            className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            className="dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             {process.env.NEXT_PUBLIC_NAV_WIKI || '服务器Wiki'}
           </Link>
@@ -93,7 +97,7 @@ export function Navbar() {
         {process.env.NEXT_PUBLIC_NAV_SHOW_DONATE !== 'false' && (
           <Link
             href={process.env.NEXT_PUBLIC_NAV_DONATE_URL || '/donate'}
-            className="text-gray-700 dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+            className="dark:text-gray-200 hover:text-pink-500 dark:hover:text-pink-400 px-3 py-2 rounded-md text-sm font-medium transition-colors"
           >
             {process.env.NEXT_PUBLIC_NAV_DONATE || '服务器捐赠名单'}
           </Link>
@@ -159,7 +163,7 @@ export function Navbar() {
             <div ref={logoRef} className="flex-shrink-0 flex items-center">
               <Link href="/" className="flex items-center space-x-2">
                 <span className="text-2xl">🌸</span>
-                <span className="font-bold text-xl text-gray-800 dark:text-white">
+                <span className="font-bold text-xl dark:text-white">
                   {process.env.NEXT_PUBLIC_NAV_LOGO || "NyaSakura 喵樱乡"}
                 </span>
               </Link>
@@ -176,9 +180,27 @@ export function Navbar() {
               </div>
 
               {!useDrawer ? (
-                <div className="flex items-center justify-end gap-3 ml-auto whitespace-nowrap">{navLinks}</div>
+                <div className="flex items-center justify-end gap-3 ml-auto whitespace-nowrap">
+                  {navLinks}
+                  <button
+                    type="button"
+                    aria-label={isDark ? '切换到亮色模式' : '切换到暗色模式'}
+                    onClick={() => setTheme(isDark ? 'light' : 'dark')}
+                    className="ml-1 p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors"
+                  >
+                    <span aria-hidden="true">{isDark ? '☀️' : '🌙'}</span>
+                  </button>
+                </div>
               ) : (
-                <div className="ml-auto">
+                <div className="ml-auto flex items-center gap-2">
+                  <button
+                    type="button"
+                    aria-label={isDark ? '切换到亮色模式' : '切换到暗色模式'}
+                    onClick={() => setTheme(isDark ? 'light' : 'dark')}
+                    className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors"
+                  >
+                    {isDark ? '☀️' : '🌙'}
+                  </button>
                   <button
                     onClick={() => setDrawerOpen(true)}
                     aria-label="打开菜单"

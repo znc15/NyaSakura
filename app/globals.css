@@ -7,6 +7,12 @@
   --foreground: #171717;
   --primary: #7928ca;
   --secondary: #ff0080;
+
+  /* NyaSakura page palette (rgb channels) */
+  --ns-fg: 135 133 162; /* #8785A2 */
+  --ns-accent: 255 199 199; /* #FFC7C7 */
+  --ns-surface: 255 226 226; /* #FFE2E2 */
+  --ns-panel: 246 246 246; /* #F6F6F6 */
 }
 
 @theme inline {
@@ -16,11 +22,16 @@
   --font-mono: var(--font-jetbrains-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* next-themes sets `class="dark"` on <html> */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  --ns-fg: 229 231 235; /* gray-200 */
+  /* keep accent the same */
+  --ns-accent: 255 199 199;
+  --ns-surface: 31 41 55; /* gray-800 */
+  --ns-panel: 17 24 39; /* gray-900 */
 }
 
 body {
