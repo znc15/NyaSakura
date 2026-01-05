@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import Link from 'next/link'
 import { useTheme } from 'next-themes'
+import { ThemeToggleButton } from './ThemeToggleButton'
 import '../styles/navbar.css'
 
 export function Navbar() {
@@ -182,25 +183,18 @@ export function Navbar() {
               {!useDrawer ? (
                 <div className="flex items-center justify-end gap-3 ml-auto whitespace-nowrap">
                   {navLinks}
-                  <button
-                    type="button"
-                    aria-label={isDark ? '切换到亮色模式' : '切换到暗色模式'}
-                    onClick={() => setTheme(isDark ? 'light' : 'dark')}
-                    className="ml-1 p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors"
-                  >
-                    <span aria-hidden="true">{isDark ? '☀️' : '🌙'}</span>
-                  </button>
+                  <ThemeToggleButton
+                    isDark={isDark}
+                    onToggle={() => setTheme(isDark ? 'light' : 'dark')}
+                    className="ml-1"
+                  />
                 </div>
               ) : (
                 <div className="ml-auto flex items-center gap-2">
-                  <button
-                    type="button"
-                    aria-label={isDark ? '切换到亮色模式' : '切换到暗色模式'}
-                    onClick={() => setTheme(isDark ? 'light' : 'dark')}
-                    className="p-2 rounded-md text-gray-600 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 focus:outline-none transition-colors"
-                  >
-                    {isDark ? '☀️' : '🌙'}
-                  </button>
+                  <ThemeToggleButton
+                    isDark={isDark}
+                    onToggle={() => setTheme(isDark ? 'light' : 'dark')}
+                  />
                   <button
                     onClick={() => setDrawerOpen(true)}
                     aria-label="打开菜单"

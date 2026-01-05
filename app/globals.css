@@ -11,7 +11,7 @@
   /* NyaSakura page palette (rgb channels) */
   --ns-fg: 135 133 162; /* #8785A2 */
   --ns-accent: 255 199 199; /* #FFC7C7 */
-  --ns-surface: 255 226 226; /* #FFE2E2 */
+  --ns-surface: 255 255 255; /* white */
   --ns-panel: 246 246 246; /* #F6F6F6 */
 }
 
