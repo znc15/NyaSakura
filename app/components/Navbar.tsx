@@ -12,10 +12,99 @@ export function Navbar() {
   const [useDrawer, setUseDrawer] = useState(false)
   const { resolvedTheme, setTheme } = useTheme()
   const [mounted, setMounted] = useState(false)
+  const [optimisticTheme, setOptimisticTheme] = useState<'light' | 'dark' | null>(null)
+  const themeTransitionLock = useRef(false)
+  const activeThemeOverlayRef = useRef<HTMLDivElement | null>(null)
 
   useEffect(() => setMounted(true), [])
 
-  const isDark = mounted ? resolvedTheme === 'dark' : false
+  const isDark = mounted ? (optimisticTheme ? optimisticTheme === 'dark' : resolvedTheme === 'dark') : false
+
+  useEffect(() => {
+    if (!mounted) return
+    // 当 next-themes 的 resolvedTheme 追上来后，清理乐观状态
+    if (optimisticTheme && resolvedTheme === optimisticTheme) {
+      setOptimisticTheme(null)
+    }
+  }, [mounted, optimisticTheme, resolvedTheme])
+
+  const cancelActiveThemeTransition = useCallback(() => {
+    if (activeThemeOverlayRef.current) {
+      activeThemeOverlayRef.current.remove()
+      activeThemeOverlayRef.current = null
+    }
+    themeTransitionLock.current = false
+  }, [])
+
+  const playThemeTransition = useCallback(
+    (next: 'light' | 'dark') => {
+      if (typeof window === 'undefined') {
+        setTheme(next)
+        return
+      }
+
+      if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        setTheme(next)
+        return
+      }
+
+      // 允许快速连点：直接打断当前动画并重启一次（以最新点击为准）
+      if (themeTransitionLock.current) {
+        cancelActiveThemeTransition()
+      }
+      themeTransitionLock.current = true
+
+      const overlay = document.createElement('div')
+      overlay.className = 'theme-transition-overlay'
+      overlay.dataset.direction = next === 'dark' ? 'up' : 'down'
+      overlay.innerHTML = '<div class="theme-transition-overlay__wipe"></div>'
+      activeThemeOverlayRef.current = overlay
+
+      // Use the "old theme" background color for the overlay, then slide the overlay away after switching theme
+      const currentBg = getComputedStyle(document.documentElement).getPropertyValue('--background').trim()
+      if (currentBg) overlay.style.setProperty('--tt-bg', currentBg)
+
+      document.body.appendChild(overlay)
+
+      // Immediately switch theme (overlay hides the instant change), then gradually reveal the new theme during the animation
+      setTheme(next)
+
+      const wipe = overlay.querySelector('.theme-transition-overlay__wipe') as HTMLDivElement | null
+
+      const cleanup = () => {
+        if (activeThemeOverlayRef.current === overlay) {
+          activeThemeOverlayRef.current = null
+        }
+        overlay.remove()
+        themeTransitionLock.current = false
+      }
+
+      const fadeOut = () => {
+        // 可能已被下一次点击打断
+        if (!overlay.isConnected) return
+        overlay.addEventListener(
+          'transitionend',
+          () => {
+            cleanup()
+          },
+          { once: true }
+        )
+        overlay.style.opacity = '0'
+      }
+
+      requestAnimationFrame(() => {
+        overlay.dataset.state = 'leave'
+      })
+
+      // Use events instead of a hardcoded timeout to avoid desync when animation duration changes
+      if (wipe) {
+        wipe.addEventListener('animationend', fadeOut, { once: true })
+      } else {
+        fadeOut()
+      }
+    },
+    [cancelActiveThemeTransition, setTheme]
+  )
 
   const backgroundRef = useRef<HTMLDivElement | null>(null)
   const navInnerRef = useRef<HTMLDivElement | null>(null)
@@ -185,7 +274,11 @@ export function Navbar() {
                   {navLinks}
                   <ThemeToggleButton
                     isDark={isDark}
-                    onToggle={() => setTheme(isDark ? 'light' : 'dark')}
+                    onToggle={() => {
+                      const next = isDark ? 'light' : 'dark'
+                      setOptimisticTheme(next)
+                      playThemeTransition(next)
+                    }}
                     className="ml-1"
                   />
                 </div>
@@ -193,7 +286,11 @@ export function Navbar() {
                 <div className="ml-auto flex items-center gap-2">
                   <ThemeToggleButton
                     isDark={isDark}
-                    onToggle={() => setTheme(isDark ? 'light' : 'dark')}
+                    onToggle={() => {
+                      const next = isDark ? 'light' : 'dark'
+                      setOptimisticTheme(next)
+                      playThemeTransition(next)
+                    }}
                   />
                   <button
                     onClick={() => setDrawerOpen(true)}
