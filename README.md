@@ -43,6 +43,15 @@ pnpm start
 NEXT_PUBLIC_FRIEND_LINKS=[{"name":"小绵羊的小窝","url":"/wiki"},{"name":"阿狸的博客","url":"/join"},{"name":"Calibur Server","url":"/status"}]
 ```
 
+也可以逐条配置（当 `NEXT_PUBLIC_FRIEND_LINKS` 为空/未设置时生效）：
+
+```dotenv
+NEXT_PUBLIC_FRIEND_LINK_1_NAME=小绵羊的小窝
+NEXT_PUBLIC_FRIEND_LINK_1_URL=/wiki
+NEXT_PUBLIC_FRIEND_LINK_2_NAME=阿狸的博客
+NEXT_PUBLIC_FRIEND_LINK_2_URL=/join
+```
+
 ### 页脚：备案信息
 
 ```dotenv

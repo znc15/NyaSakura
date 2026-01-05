@@ -214,13 +214,13 @@ export default function Home() {
       {/* 第二屏：服务器详情内容 */}
       <div id="content-section" className="content py-12">
         <div className="server-info p-6 bg-[#FFE2E2]/80 backdrop-blur-md rounded-lg shadow-lg fade-in-up">
-          <h2 className="text-2xl font-bold mb-4 text-[#8785A2]">{process.env.NEXT_PUBLIC_SERVER_DETAILS_TITLE || "服务器详情"}</h2>
+          <h2 className="text-2xl font-bold mb-4 text-[#8785A2] text-center">{process.env.NEXT_PUBLIC_SERVER_DETAILS_TITLE || "服务器详情"}</h2>
           <div
             className="auto-grid"
             style={{ ['--grid-min' as any]: '22rem', ['--grid-gap' as any]: '1.5rem' }}
           >
               <div>
-                <h3 className="text-xl font-semibold mb-2 text-[#8785A2]">{process.env.NEXT_PUBLIC_SERVER_CONFIG_TITLE || "服务器配置"}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-[#8785A2] border-l-4 border-[#FFC7C7] pl-3">{process.env.NEXT_PUBLIC_SERVER_CONFIG_TITLE || "服务器配置"}</h3>
                 <ul className="space-y-2 text-[#8785A2]">
                   <li className="flex items-center">
                     <span className="icon-square mr-2" aria-hidden="true">
@@ -267,7 +267,7 @@ export default function Home() {
                 </ul>
               </div>
               <div>
-                <h3 className="text-xl font-semibold mb-2 text-[#8785A2]">{process.env.NEXT_PUBLIC_SERVER_STATUS_TITLE || "服务器状态"}</h3>
+                <h3 className="text-xl font-semibold mb-2 text-[#8785A2] border-l-4 border-[#FFC7C7] pl-3 ">{process.env.NEXT_PUBLIC_SERVER_STATUS_TITLE || "服务器状态"}</h3>
                 <ul className="space-y-2 text-[#8785A2]">
                   <li className="flex items-center">
                     <span className="icon-square mr-2" aria-hidden="true">

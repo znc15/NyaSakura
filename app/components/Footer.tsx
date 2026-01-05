@@ -12,7 +12,19 @@ const DEFAULT_FRIEND_LINKS: FriendLink[] = [
 ];
 
 function parseFriendLinks(raw: string | undefined): FriendLink[] {
-  if (!raw || raw.trim() === '') return DEFAULT_FRIEND_LINKS;
+  if (!raw || raw.trim() === '') {
+    const envLinks: FriendLink[] = [];
+    for (let i = 1; i <= 10; i++) {
+      const name = process.env[`NEXT_PUBLIC_FRIEND_LINK_${i}_NAME` as const];
+      const url = process.env[`NEXT_PUBLIC_FRIEND_LINK_${i}_URL` as const];
+      if (typeof name !== 'string' || typeof url !== 'string') continue;
+      const trimmedName = name.trim();
+      const trimmedUrl = url.trim();
+      if (!trimmedName || !trimmedUrl) continue;
+      envLinks.push({ name: trimmedName, url: trimmedUrl });
+    }
+    return envLinks.length > 0 ? envLinks : DEFAULT_FRIEND_LINKS;
+  }
   try {
     const parsed = JSON.parse(raw) as unknown;
     if (!Array.isArray(parsed)) return DEFAULT_FRIEND_LINKS;
