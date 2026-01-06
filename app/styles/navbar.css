@@ -251,12 +251,12 @@
 }
 
 .theme-toggle[data-mode='dark'] .theme-toggle__thumb {
-  transform: translateX(1.5rem);
+  transform: translateX(1.32rem);
   background: rgb(var(--ns-fg) / 0.92);
 }
 
 .theme-toggle[data-mode='dark']:hover .theme-toggle__thumb {
-  transform: translateX(1.38rem);
+  transform: translateX(1.4rem);
 }
 
 .theme-toggle__crater {

@@ -94,6 +94,29 @@ body {
   animation: dialogEnter 0.3s ease-out;
 }
 
+/* Dialog theme (use site theme vars; works for both light/dark) */
+.ns-dialog {
+  background: rgb(255 255 255 / 0.95);
+  color: rgb(0 0 0);
+  border: 1px solid rgb(var(--ns-accent) / 0.22);
+}
+
+.ns-dialog__header {
+  border-bottom: 1px solid rgb(var(--ns-accent) / 0.18);
+}
+
+.ns-dialog__title {
+  color: rgb(0 0 0);
+}
+
+.ns-dialog__close {
+  color: rgb(0 0 0 / 0.65);
+}
+
+.ns-dialog__close:hover {
+  color: rgb(0 0 0);
+}
+
 /* Theme transition overlay (diagonal reveal)
   Overlay uses the *previous* theme background and slides away diagonally,
   so the new theme is revealed during the animation.
@@ -106,7 +129,7 @@ body {
   z-index: 9999;
   pointer-events: none;
   opacity: 1;
-  transition: opacity 760ms ease;
+  transition: opacity 960ms ease;
 }
 
 .theme-transition-overlay__wipe {
@@ -120,11 +143,11 @@ body {
 }
 
 .theme-transition-overlay[data-state='leave'][data-direction='down'] .theme-transition-overlay__wipe {
-  animation: ns-theme-wipe-out-down 1900ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: ns-theme-wipe-out-down 2100ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 .theme-transition-overlay[data-state='leave'][data-direction='up'] .theme-transition-overlay__wipe {
-  animation: ns-theme-wipe-out-up 1900ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+  animation: ns-theme-wipe-out-up 2100ms cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
 }
 
 @keyframes ns-theme-wipe-out-down {

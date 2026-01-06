@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useRef, useState } from 'react';
 
 interface DialogProps {
@@ -59,18 +61,18 @@ const Dialog: React.FC<DialogProps> = ({ title, children, onClose }) => {
       <div className="absolute inset-0 bg-black/25" />
       <div 
         ref={dialogRef}
-        className={`relative bg-white/95 dark:bg-gray-900/90 backdrop-blur-sm rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden transform transition-all duration-300 ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'} animate-dialog-enter`}
+        className={`relative ns-dialog backdrop-blur-sm rounded-lg shadow-xl max-w-md w-full mx-4 overflow-hidden transform transition-all duration-300 ${isClosing ? 'scale-95 opacity-0' : 'scale-100 opacity-100'} animate-dialog-enter`}
       >
-        <div className="flex justify-between items-center p-4 border-b border-gray-200 dark:border-gray-700">
-          <h3 className="text-xl font-semibold text-gray-900 dark:text-pink-200">{title}</h3>
+        <div className="flex justify-between items-center p-4 ns-dialog__header">
+          <h3 className="text-xl font-semibold ns-dialog__title">{title}</h3>
           <button 
             onClick={handleClose}
-            className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-pink-200 focus:outline-none transition-colors"
+            className="ns-dialog__close focus:outline-none transition-colors"
           >
             <span className="text-2xl">×</span>
           </button>
         </div>
-        <div className="p-6 text-gray-800 dark:text-white">
+        <div className="p-6">
           {children}
         </div>
       </div>

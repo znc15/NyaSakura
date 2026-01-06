@@ -93,24 +93,24 @@ export default function Home() {
           <div className="space-y-3">
             <p className="flex items-center">
               <span className="inline-block w-6 h-6 mr-2 text-center">🌐</span>
-              <span className="font-medium text-[rgb(var(--ns-fg))] dark:text-gray-200">{process.env.NEXT_PUBLIC_DIALOG_IPV4_LABEL || "IPV4地址"}: </span>
+              <span className="font-medium text-black">{process.env.NEXT_PUBLIC_DIALOG_IPV4_LABEL || "IPV4地址"}: </span>
               <span className="ml-2">{process.env.NEXT_PUBLIC_SERVER_IPV4 || "play.tcbmc.cc"}</span>
             </p>
             <p className="flex items-center">
               <span className="inline-block w-6 h-6 mr-2 text-center">🚀</span>
-              <span className="font-medium text-[rgb(var(--ns-fg))] dark:text-gray-200">{process.env.NEXT_PUBLIC_DIALOG_IPV6_LABEL || "IPV6地址 (推荐)"}: </span>
+              <span className="font-medium text-black">{process.env.NEXT_PUBLIC_DIALOG_IPV6_LABEL || "IPV6地址 (推荐)"}: </span>
               <span className="ml-2">{process.env.NEXT_PUBLIC_SERVER_IPV6 || "v6.play.tcbmc.cc"}</span>
             </p>
             <p className="flex items-center">
               <span className="inline-block w-6 h-6 mr-2 text-center">🔄</span>
-              <span className="font-medium text-[rgb(var(--ns-fg))] dark:text-gray-200">{process.env.NEXT_PUBLIC_DIALOG_BACKUP_LABEL || "备用地址"}: </span>
+              <span className="font-medium text-black">{process.env.NEXT_PUBLIC_DIALOG_BACKUP_LABEL || "备用地址"}: </span>
               <span className="ml-2">{process.env.NEXT_PUBLIC_SERVER_BACKUP || "backup.play.tcbmc.cc"}</span>
             </p>
           </div>
           <div className="mt-6 text-center">
             <button
               onClick={() => setShowServerAddress(false)}
-              className="px-6 py-2 bg-transparent border border-[rgb(var(--ns-accent))] text-[rgb(var(--ns-fg))] rounded-lg transition-colors font-medium hover:bg-[rgb(var(--ns-surface) / 0.3)]"
+              className="px-6 py-2 bg-transparent border border-[rgb(var(--ns-accent))] text-black rounded-lg transition-colors font-medium hover:bg-black/5"
             >
               {process.env.NEXT_PUBLIC_BUTTON_UNDERSTAND || "了解"}
             </button>
